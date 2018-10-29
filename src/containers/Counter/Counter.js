@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
-import * as actionCreators from '../../store/actions/actions';
+import * as actionCreators from '../../store/actions/index';
 
 
 class Counter extends Component {
@@ -21,7 +21,7 @@ class Counter extends Component {
                 <CounterControl label="Add 10" clicked={this.props.onADDIncrementCounter}  />
                 <CounterControl label="Subtract 15" clicked={this.props.onSubstractCounter}  />
                 <hr />
-                <button onClick={() =>this.props.onStoreResult}>Store Result</button>
+                <button onClick={() =>this.props.onStoreResult(this.props.ctr)}>Store Result</button>
                 <ul>
                     {this.props.storedResults.map(item => ( 
                     <li key={item.id} onClick={() =>this.props.onDeleteResult(item.id)}>{item.value}:{item.id.toString()}</li>) )}
